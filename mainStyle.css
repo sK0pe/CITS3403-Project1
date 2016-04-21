@@ -222,14 +222,14 @@ a#menuButton{
 .previewCanvas{
     height: 20vh;
     width: 20vh;
-    background-color: white;
+    background-color: rgba(60,60,60,1);
 }
 
 
 .gameCanvas{
     height: 80vh;
     width: 40vh;
-    background: white;
+    background: rgba(60,60,60,1);
     display: inline-block;
     vertical-align: top;
     margin-left: 4vw;

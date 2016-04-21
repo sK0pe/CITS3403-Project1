@@ -10,13 +10,13 @@
         WIDTH = 10,     // width in blocks
         HEIGHT = 20,    // height in blocks
         previewSize = 5,    //  size of preview pane in blocks
-        timeToDrop = 0.6;     // time till block drops
+        timeToDrop = 0.6;  // time till block drops
     /*----------------------------------------------Game Variables*/
     var blockSize,      // pixel length or width of a block
         blockField,     // 2d array representing empty or full
         playerInputs,   // User input queue
         playing,        // bool to see if playing
-        elapsedTime,    // time since start of game
+        elapsedTime,    // keeps track of changes in time
         currBlock,      // current block
         nextBlock,      // next block
         score,          // current score
@@ -95,7 +95,7 @@
 
 
     /*-------------------------------------------------------Event Listeners*/
-    function resize(event){
+    function resize(){
         canvas.width = canvas.clientWidth;  //  apply current HTML dimensions
         canvas.height = canvas.clientHeight;
         previewCanvas.height = previewCanvas.clientHeight;
@@ -164,7 +164,7 @@
     //  End game
     function endGame(){
         document.getElementById("startBanner").style.visibility ="visible";
-        setScore();
+        setScore(0);
         playing = false;
     }
 
@@ -225,21 +225,7 @@
         setNextBlock();
     }
 
-    /*Updates between each loop of game loop*/
-    function update(loopTime){
-        if(playing){
-            // do the next user input in queue
-            executeInput(playerInputs.shift());
-            elapsedTime += loopTime;
-            //  If the change in time is greater than
-            //  interval beween blocks moving down the screen
-            //  make the block drop.
-            if(elapsedTime > timeToDrop){
-                elapsedTime -= timeToDrop;
-                drop();
-            }
-        }
-    }
+
 
     /*Execute action of user*/
     function executeInput(input){
@@ -255,9 +241,6 @@
                 break;
             case directionArray.DOWN:
                 drop();
-                break;
-            default:
-                console.log("Incorrect case in directionArray from executeInput");
                 break;
         }
     }
@@ -303,7 +286,7 @@
 
     /*During update, move piece down during normal loop by 1 row*/
     function drop(){
-        if(!move(directionArray.DOWN)) {
+        if(!move(directionArray.DOWN)){
             // If can't move down, add to the field of blocks
             // increment score
             setScore(10);
@@ -316,6 +299,10 @@
             setNextBlock(randomTetromino());
             //  Clear player input queue
             playerInputs = [];
+            //  Lose game if over flow on drops
+            if(impossibleMove(currBlock.tetromino, currBlock.x, currBlock.y, currBlock.rotateForm)){
+                endGame();
+            }
         }
     }
 
@@ -407,9 +394,6 @@
     }
 
 
-
-
-
     /*Draw a Block*/
     function drawBlock(ctx, x, y, colour){
         ctx.fillStyle = colour;
@@ -443,7 +427,7 @@
                     }
                 }
             }
-            ctx.strokeRect(0, 0, WIDTH * blockSize - 2, HEIGHT*blockSize - 2);
+            ctx.strokeRect(0, 0, WIDTH * blockSize - 1, HEIGHT*blockSize - 1);
             redraw.field = false;
         }
     }
@@ -453,10 +437,10 @@
         if(redraw.preview){
             var pad = (previewSize - nextBlock.tetromino.size) / 2;
             previewctx.save();
+            previewctx.strokeStyle = "rgb(255, 255, 255)";
             previewctx.translate(1,1);
             previewctx.clearRect(0, 0, previewSize*blockSize, previewSize*blockSize);
             drawTetromino(previewctx, nextBlock.tetromino, pad, pad, nextBlock.rotateForm);
-            previewctx.strokeStyle = "black";
             previewctx.strokeRect(0, 0, previewSize*blockSize-1, previewSize*blockSize-1);
             previewctx.restore();
             redraw.preview = false;
@@ -474,50 +458,52 @@
     /*Draw function*/
     function draw(){
         ctx.save(); // save context to stack
-        ctx.lineWidth = 2;
-        ctx.translate(1, 1);
+        ctx.strokeStyle = "rgb(255, 255, 255)";
+        ctx.lineWidth = 1;
+        ctx.translate(0.5, 0.5);
         drawField();
         drawPreview();
         drawScore();
         ctx.restore();  // pop context from stack
     }
 
-
-
     /*-------------------------------------------------------------Game Loop*/
     function runGame(){
-        // check for events which may change game state
+        // Initialise event listeners check for events which may change game state
         document.addEventListener("keydown", keyDown, false);
         window.addEventListener("resize", resize, false);
 
         // Get time in milliseconds
-        var lastTime, currentTime;
-        lastTime = currentTime = Date.now();
+        var start = new Date().getTime();
 
         //  Use request Animation frame, starts outside then runs
         //  recursively
         function drawLoop(){
-            currentTime = Date.now();
-            //  Update at least every second (aim for 60fps)
-            update(Math.min(1, (currentTime - lastTime))/1000.0);
+            var current = new Date().getTime();
+            // Find elapsed time in seconds
+            elapsedTime = (current - start)/1000.0;
+            if(playing){
+                // do the next user input in queue
+                executeInput(playerInputs.shift());
+                if(elapsedTime > timeToDrop){
+                    drop();  // Drop current Tetromino
+                    start = new Date().getTime();
+                }
+            }
             draw();
-            lastTime = currentTime;
-            //  Call back to frame again
+            //  Ask for next frame
             requestAnimationFrame(drawLoop);
         }
         //  Resize before initiating loop
         resize();
         //  Reset game variables before initiating loop
         reset();
+        //  Start animating
         drawLoop();
-
     }
-
-
+    
     /*-------------------------------------------------------------Run Game*/
     runGame();
-
-    
 
 })();
              
