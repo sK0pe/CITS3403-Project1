@@ -147,7 +147,7 @@ a#menuButton{
     width: 30vw;
     right: -30vw;
     margin: 0;
-    -webkit-padding-start: 0;
+    padding-left: 0;
     overflow-y: auto;
     overflow-x: hidden;
     transition: all 0.4s ease;
