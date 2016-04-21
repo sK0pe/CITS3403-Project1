@@ -2,37 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fill your University's Pocket</title>
+    <title>Stash EvilCorp's Cash</title>
     <link rel="stylesheet" type="text/css" href="mainStyle.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,700' rel='stylesheet' type='text/css'>
     <script src="mainScript.js"></script>
 </head>
 <body>
     <header id="pageHeader" class="pageHeader">
             <div id="gameTitle">
-                <a href="index.html" class="titleText">Fill your University's Pocket</a>
+                <a href="index.html" class="titleText">Fill EvilCorp's Pocket</a>
             </div>
             <nav id="pageNavigation" class="pageNavigation navText">
                 <ul id="navList" class="navList">
-                    <li>
-                        <a>Login</a>
+                    <li id ="burgerIcon" class="burgerIcon" >
+                        <a id="menuButton" class="menuButton titleText" href="#">☰</a>
                     </li>
                     <li>
-                        <a>Settings</a>
+                        <a class="navText" href="#">Rules</a>
                     </li>
-                    <li class="burgerIcon">
-                        <a href="javascript:void(0);" onclick="menuToggle()">☰</a>
+                    <li>
+                        <a class="navText" href="references.html">Intro</a>
                     </li>
                 </ul>
             </nav>
-
     </header>
-    <section id="gameArea" class="gameArea">
-        this is the main section
+<!--Primary section of website, wrapped to allow for menu Operation-->
+    <section id="overallWrap" class="overallWrap">
+        <!--Area for Canvas to be placed-->
+        <section id="gameArea" class="gameArea">
+           <canvas id="canvas" class="gameCanvas">You did not load the canvas!</canvas>
+        </section>
 
+        <footer id="pageFooter" class="pageFooter">
+            <ul id="socialMedia" class="pageFooterList">
+            </ul>
+        </footer>
     </section>
-    <footer id="pageFooter" class="pageFooter">
-        This is the main footer
-    </footer>
+
+    <!--Right Pushing Menu-->
+    <menu id="pushMenu" class="pushMenu">
+        <li>
+            <a href="#" class="navText">Login</a>
+        </li>
+        <li>
+            <a href="#" class="navText">Set EvilCorp</a>
+        </li>
+        <li>
+            <a href="#" class="navText">Progress</a>
+        </li>
+        <li>
+            <a href="references.html" class="navText">References</a>
+        </li>
+    </menu>
+
+    <!--Mask for background when menu pushes-->
+    <section id="mask" class="mask"></section>
+    <!--Load Script-->
+    <script src="game.js"></script>
 </body>
 </html>
