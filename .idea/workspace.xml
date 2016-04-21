@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75667e7f-59bd-41c9-a919-879d33020844" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Pradyumn.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/references.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Project1.iws" />
@@ -44,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="413" column="32" selection-start-line="413" selection-start-column="32" selection-end-line="413" selection-end-column="32" />
+            <state relative-caret-position="512">
+              <caret line="436" column="29" selection-start-line="436" selection-start-column="29" selection-end-line="436" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -64,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainScript.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainScript.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainScript.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -96,8 +97,8 @@
         <option value="$PROJECT_DIR$/mainStyle.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/ide/ide-scripting.js" />
-        <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/references.html" />
+        <option value="$PROJECT_DIR$/game.js" />
       </list>
     </option>
   </component>
@@ -137,7 +138,24 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CITS3403-Project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CITS3403-Project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CITS3403-Project1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
@@ -241,7 +259,7 @@
       <workItem from="1460801470627" duration="1375000" />
       <workItem from="1460808389979" duration="19857000" />
       <workItem from="1461217983871" duration="131000" />
-      <workItem from="1461218233240" duration="30101000" />
+      <workItem from="1461218233240" duration="32839000" />
     </task>
     <task id="LOCAL-00001" summary="Rebase">
       <created>1461218378489</created>
@@ -292,17 +310,24 @@
       <option name="project" value="LOCAL" />
       <updated>1461238775496</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="starting to do the draw functions, fixed random function">
+      <created>1461251572214</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1461251572214</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72245000" />
+    <option name="totallyTimeSpent" value="74983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26495728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26495728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12691467" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -337,7 +362,8 @@
     <MESSAGE value="Made the game page and styled" />
     <MESSAGE value="reference update" />
     <MESSAGE value="move and rotate" />
-    <option name="LAST_COMMIT_MESSAGE" value="move and rotate" />
+    <MESSAGE value="starting to do the draw functions, fixed random function" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting to do the draw functions, fixed random function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -457,18 +483,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/mainScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+        <state relative-caret-position="289">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="413" column="32" selection-start-line="413" selection-start-column="32" selection-end-line="413" selection-end-column="32" />
+        <state relative-caret-position="255">
+          <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -481,10 +507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainScript.js">
+    <entry file="file://$PROJECT_DIR$/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        <state relative-caret-position="512">
+          <caret line="436" column="29" selection-start-line="436" selection-start-column="29" selection-end-line="436" selection-end-column="29" />
           <folding />
         </state>
       </provider>
