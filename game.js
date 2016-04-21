@@ -94,66 +94,6 @@
     }
 
 
-    /*-------------------------------------------------------Event Listeners*/
-    function resize(){
-        canvas.width = canvas.clientWidth;  //  apply current HTML dimensions
-        canvas.height = canvas.clientHeight;
-        previewCanvas.height = previewCanvas.clientHeight;
-        previewCanvas.width = previewCanvas.clientWidth;
-        blockSize = canvas.height / HEIGHT;
-        redrawBlockField();
-        redrawPreview();
-    }
-
-    function keyDown(event){
-        var preventDefault = false;
-        if(playing){
-            switch(event.keyCode){
-                case keyArray.A:
-                    playerInputs.push(directionArray.LEFT);
-                    preventDefault = true;
-                    break;
-                case keyArray.D:
-                    playerInputs.push(directionArray.RIGHT);
-                    preventDefault = true;
-                    break;
-                case keyArray.W:
-                    playerInputs.push(directionArray.UP);
-                    preventDefault = true;
-                    break;
-                case keyArray.S:
-                    playerInputs.push(directionArray.DOWN);
-                    preventDefault = true;
-                    break;
-                case keyArray.ESC:
-                    endGame();
-                    preventDefault = true;
-                    break;
-                case keyArray.P:
-                    pause();
-                    preventDefault = true;
-                    break;
-            }
-        }
-        else{
-            //  If not playing
-            switch(event.keyCode){
-                case keyArray.SPACE:
-                    startPlaying();
-                    preventDefault = true;
-                    break;
-                case keyArray.P:
-                    unPause();
-                    preventDefault = true;
-                    break;
-            }
-        }
-        //  Prevent regular functions for keys when interacting with game
-        if(preventDefault){
-            event.preventDefault();
-        }
-    }
-
     /*-------------------------------------------------------Game Functions*/
     // Begin game
     function startPlaying(){
@@ -161,6 +101,7 @@
         reset();
         playing = true;
     }
+
     //  End game
     function endGame(){
         document.getElementById("startBanner").style.visibility ="visible";
@@ -172,21 +113,25 @@
     function setTetris(truthValue){
         tetris = truthValue;
     }
+
     // Get Tetris boolean
     function getTetris(){
         return tetris;
     }
+
     //  Set the score, if called without parameter score === 0
     function setScore(s){
         score = score + s || 0;
         redrawScore();
     }
+
     //  Get a block with null / false if it doesn't exist
     function getBlock(x, y){
         //  Check if tetris grid and row exist, return block space else null
         //  null evaluates to false
         return (blockField && blockField[x]) ? blockField[x][y] : null;
     }
+
     //  Setter for rows and blocks that are define or undefined
     function setBlock(x, y, tetromino){
         // If blockField[x] is undefined fill it with an empty array
@@ -197,17 +142,20 @@
         // redraw canvas
         redrawBlockField();
     }
+
     // Clear tetris grid
     function clearBlockField(){
         blockField = [];
         redrawBlockField();
     }
+
     //  Set the current piece
     function setCurrBlock(piece){
         // If "piece" undefined then assign a new block as the current block
         currBlock = piece || randomTetromino();
         redrawBlockField();
     }
+
     //  Set the next piece
     function setNextBlock(piece){
         // If "piece" is undefined then assign a new block into nextBlock
@@ -223,26 +171,6 @@
         setScore();
         setCurrBlock(nextBlock);
         setNextBlock();
-    }
-
-
-
-    /*Execute action of user*/
-    function executeInput(input){
-        switch(input){
-            case directionArray.LEFT:
-                move(directionArray.LEFT);
-                break;
-            case directionArray.RIGHT:
-                move(directionArray.RIGHT);
-                break;
-            case directionArray.UP:
-                rotate();
-                break;
-            case directionArray.DOWN:
-                drop();
-                break;
-        }
     }
 
     /*Check if the next possible move is possible,
@@ -306,12 +234,47 @@
         }
     }
 
+    /*Execute User key presses*/
+    function executeInput(input){
+        switch(input){
+            case directionArray.LEFT:
+                move(directionArray.LEFT);
+                break;
+            case directionArray.RIGHT:
+                move(directionArray.RIGHT);
+                break;
+            case directionArray.UP:
+                rotate();
+                break;
+            case directionArray.DOWN:
+                drop();
+                break;
+        }
+    }
+
     /* Add piece to the field of block at the bottom of the grid by setting it
     *  uses helper function to apply only valid blocks in 4x4 array*/
     function addPiece(){
         checkBlocks(currBlock.tetromino, currBlock.x, currBlock.y, currBlock.rotateForm, function(x,y){
             setBlock(x, y, currBlock.tetromino);
         });
+    }
+
+    /*Delete row, bring blocks from above down 1 line*/
+    function deleteRow(line){
+        var col, row;
+        for(row = line; row >= 0; --row){
+            for(col = 0; col < WIDTH; ++col){
+                if(row == 0){
+                    //  Set null if on 0 line
+                    setBlock(col, row, null);
+                }
+                else{
+                    // set block from above
+                    setBlock(col, row, getBlock(col, row-1));
+                }
+            }
+        }
     }
 
     /*Clear and Score Lines*/
@@ -361,24 +324,65 @@
         }
     }
 
-
-    /*Delete row, bring blocks from above down 1 line*/
-    function deleteRow(line){
-        var col, row;
-        for(row = line; row >= 0; --row){
-            for(col = 0; col < WIDTH; ++col){
-                if(row == 0){
-                    //  Set null if on 0 line
-                    setBlock(col, row, null);
-                }
-                else{
-                    // set block from above
-                    setBlock(col, row, getBlock(col, row-1));
-                }
-            }
-        }
+    /*-------------------------------------------------------Event Listeners*/
+    function resize(){
+        canvas.width = canvas.clientWidth;  //  apply current HTML dimensions
+        canvas.height = canvas.clientHeight;
+        previewCanvas.height = previewCanvas.clientHeight;
+        previewCanvas.width = previewCanvas.clientWidth;
+        blockSize = canvas.height / HEIGHT;
+        redrawBlockField();
+        redrawPreview();
     }
 
+    function keyDown(event){
+        var preventDefault = false;
+        if(playing){
+            switch(event.keyCode){
+                case keyArray.A:
+                    playerInputs.push(directionArray.LEFT);
+                    preventDefault = true;
+                    break;
+                case keyArray.D:
+                    playerInputs.push(directionArray.RIGHT);
+                    preventDefault = true;
+                    break;
+                case keyArray.W:
+                    playerInputs.push(directionArray.UP);
+                    preventDefault = true;
+                    break;
+                case keyArray.S:
+                    playerInputs.push(directionArray.DOWN);
+                    preventDefault = true;
+                    break;
+                case keyArray.ESC:
+                    endGame();
+                    preventDefault = true;
+                    break;
+                case keyArray.P:
+                    pause();
+                    preventDefault = true;
+                    break;
+            }
+        }
+        else{
+            //  If not playing
+            switch(event.keyCode){
+                case keyArray.SPACE:
+                    startPlaying();
+                    preventDefault = true;
+                    break;
+                case keyArray.P:
+                    unPause();
+                    preventDefault = true;
+                    break;
+            }
+        }
+        //  Prevent regular functions for keys when interacting with game
+        if(preventDefault){
+            event.preventDefault();
+        }
+    }
     /*-------------------------------------------------------Drawing Functions*/
     // redraw object
     var redraw = {};
@@ -468,6 +472,7 @@
     }
 
     /*-------------------------------------------------------------Game Loop*/
+
     function runGame(){
         // Initialise event listeners check for events which may change game state
         document.addEventListener("keydown", keyDown, false);
@@ -501,7 +506,7 @@
         //  Start animating
         drawLoop();
     }
-    
+
     /*-------------------------------------------------------------Run Game*/
     runGame();
 
