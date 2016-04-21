@@ -20,12 +20,12 @@
 }
 @font-face {
     font-family: Roboto;
-    font-weight: 500;
+    font-style: italic;
     src: url("fonts/Roboto-MediumItalic.ttf");
 }
 
 
-.titleText, .navText, .regText, h1, a{
+.titleText, .navText, .regText, .scoreText, h1, a{
     color: rgba(255, 255, 255, 1);
     font-family: "Roboto", sans-serif;
     text-decoration: none;
@@ -40,6 +40,13 @@
     font-size: 3vh;
     font-weight: 700;
     text-align: center;
+}
+
+.scoreText{
+    font-size: 2vh;
+    font-weight: 700;
+    text-align: center;
+    color: aquamarine;
 }
 
 .regText{
@@ -189,15 +196,43 @@ a#menuButton{
 /*----------------------------------------------------Main Space*/
 .gameArea{
     text-align: center;
-    min-height: 72vh;
+    /*min-height: 92vh;*/
     position: relative;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
+
+.gameContainer{
+    padding: 4vh 4vw;
+    width: 72vw;
+    margin-left: 9vw;
+    background-color: rgba(0,0,0, 0.7);
+    display: block;
+}
+
+.sidebar{
+    width: 20vw;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    padding-top: 4vh;
+}
+
+.previewCanvas{
+    height: 20vh;
+    width: 20vh;
+    background-color: white;
+}
+
 
 .gameCanvas{
     height: 80vh;
-    width: 80vh;
-    background: #eee;
-    margin-top: 6vh;
+    width: 40vh;
+    background: white;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 4vw;
 }
 
 .textBox{
@@ -205,7 +240,6 @@ a#menuButton{
     width: 72vw;
     padding: 4vh 4vw;
     margin-left: 10vw;
-    margin-top: 10vh;
     word-wrap: break-word;
 }
 
