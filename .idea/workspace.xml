@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75667e7f-59bd-41c9-a919-879d33020844" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -241,7 +240,7 @@
       <workItem from="1460801470627" duration="1375000" />
       <workItem from="1460808389979" duration="19857000" />
       <workItem from="1461217983871" duration="131000" />
-      <workItem from="1461218233240" duration="20494000" />
+      <workItem from="1461218233240" duration="20513000" />
     </task>
     <task id="LOCAL-00001" summary="Rebase">
       <created>1461218378489</created>
@@ -271,11 +270,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461229337282</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="move and rotate">
+      <created>1461238754802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1461238754802</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62638000" />
+    <option name="totallyTimeSpent" value="62657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -315,7 +321,8 @@
     <MESSAGE value="Works mostly in IE" />
     <MESSAGE value="Made the game page and styled" />
     <MESSAGE value="reference update" />
-    <option name="LAST_COMMIT_MESSAGE" value="reference update" />
+    <MESSAGE value="move and rotate" />
+    <option name="LAST_COMMIT_MESSAGE" value="move and rotate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
