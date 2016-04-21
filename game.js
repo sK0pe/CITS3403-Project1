@@ -7,10 +7,10 @@
         ctx = canvas.getContext("2d"),
         previewCanvas = document.getElementById("previewCanvas"),
         previewctx = previewCanvas.getContext("2d"),
-        speedArray = {start: 0.5, faster: 0.005, min: 0.1},
         WIDTH = 10,     // width in blocks
         HEIGHT = 20,    // height in blocks
-        previewInBlocks = 5;    //  size of preview pane in blocks
+        previewSize = 5,    //  size of preview pane in blocks
+        timeToDrop = 0.6;     // time till block drops
     /*----------------------------------------------Game Variables*/
     var blockSize,      // pixel length or width of a block
         blockField,     // 2d array representing empty or full
@@ -20,7 +20,6 @@
         currBlock,      // current block
         nextBlock,      // next block
         score,          // current score
-        timeToDrop,     // time till block drops
         tetris;         // if last clear was a tetris (4 blocks)
 
     /*----------------------------------------------Tetrminos*/
@@ -177,9 +176,9 @@
     function getTetris(){
         return tetris;
     }
-    //  Set the score
+    //  Set the score, if called without parameter score === 0
     function setScore(s){
-        score += s;
+        score = score + s || 0;
         redrawScore();
     }
     //  Get a block with null / false if it doesn't exist
@@ -220,7 +219,8 @@
     function reset(){
         elapsedTime = 0;
         playerInputs = [];
-        setScore(0);
+        clearBlockField();
+        setScore();
         setCurrBlock(nextBlock);
         setNextBlock();
     }
@@ -410,6 +410,22 @@
 
 
 
+    /*Draw a Block*/
+    function drawBlock(ctx, x, y, colour){
+        ctx.fillStyle = colour;
+        ctx.fillRect(x*blockSize, y*blockSize, blockSize, blockSize);
+        ctx.strokeRect(x*blockSize, y*blockSize, blockSize, blockSize);
+    }
+
+
+    /*Draws a tetromino*/
+    function drawTetromino(ctx, tetromino, x, y, rotateForm){
+        checkBlocks(tetromino, x, y, rotateForm, function(x, y){
+            drawBlock(ctx, x, y, tetromino.colour);
+        });
+    }
+
+
     /*Draw the entire block field based on current 2d array game state*/
     function drawField(){
         if(redraw.field){
@@ -432,9 +448,26 @@
         }
     }
 
+    /*Draw the preview pane and the upcoming block*/
     function drawPreview(){
         if(redraw.preview){
-            var padding = ();
+            var pad = (previewSize - nextBlock.tetromino.size) / 2;
+            previewctx.save();
+            previewctx.translate(1,1);
+            previewctx.clearRect(0, 0, previewSize*blockSize, previewSize*blockSize);
+            drawTetromino(previewctx, nextBlock.tetromino, pad, pad, nextBlock.rotateForm);
+            previewctx.strokeStyle = "black";
+            previewctx.strokeRect(0, 0, previewSize*blockSize-1, previewSize*blockSize-1);
+            previewctx.restore();
+            redraw.preview = false;
+        }
+    }
+
+    /* Update the score*/
+    function drawScore(){
+        if(redraw.score){
+            document.getElementById("score").innerHTML = String(score);
+            redraw.score = false;
         }
     }
 
@@ -448,15 +481,6 @@
         drawScore();
         ctx.restore();  // pop context from stack
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -488,6 +512,10 @@
         drawLoop();
 
     }
+
+
+    /*-------------------------------------------------------------Run Game*/
+    runGame();
 
     
 
