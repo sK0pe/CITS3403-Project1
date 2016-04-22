@@ -7,102 +7,102 @@
     <script src="mainScript.js"></script>
 </head>
 <body>
-<header id="pageHeader" class="pageHeader">
-    <div id="gameTitle">
-        <a href="game.html" class="titleText">Fill EvilCorp's Pocket</a>
-    </div>
-    <nav id="pageNavigation" class="pageNavigation navText">
-        <ul id="navList" class="navList">
-            <li id ="burgerIcon" class="burgerIcon" >
-                <a id="menuButton" class="menuButton titleText" href="#">☰</a>
-            </li>
-            <li>
-                <a class="navText" href="rules.html">Rules</a>
-            </li>
-            <li>
-                <a class="navText" href="index.html">Intro</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<!--Primary section of website, wrapped to allow for menu Operation-->
-<section id="overallWrap" class="overallWrap">
-    <!--Area for Canvas to be placed-->
-    <section id="gameArea" class="gameArea">
-        <section id="flavourText" class="textBox regText">
-            <h1>Rules and Scoring</h1>
-            <p>
-                The objective of the game is to fill rows with blocks to score points.
-            </p>
-            <h2>
-                Control Scheme
-            </h2>
-            <ul>
-                <li>
-                    Blocks will enter the field of play one at a time.
+    <header id="pageHeader" class="pageHeader">
+        <div id="gameTitle">
+            <a href="game.html" class="titleText">Fill EvilCorp's Pocket</a>
+        </div>
+        <nav id="pageNavigation" class="pageNavigation navText">
+            <ul id="navList" class="navList">
+                <li id ="burgerIcon" class="burgerIcon" >
+                    <a id="menuButton" class="menuButton titleText" href="#">☰</a>
                 </li>
                 <li>
-                    Blocks descend at a set interval until they encounter the bottom of the field
-                    or they encounter another block.
+                    <a class="navText" href="rules.html">Rules</a>
                 </li>
                 <li>
-                    Blocks cannot move up but the player can hasten their
-                    descent by pressing "S".
-                </li>
-                <li>
-                    The player can move a block left (press "A") or right (press "D")
-                </li>
-                <li>
-                    Blocks can be rotated (press "W") in a clockwise fashion to reposition.
+                    <a class="navText" href="index.html">Intro</a>
                 </li>
             </ul>
-            <h2>
-                Scoring
-            </h2>
-            <ul>
-                <li>
-                    Blocks that finish their descent score 10 points.
-                </li>
-                <li>
-                    If an entire row is filled with blocks (cash) the line disappears from
-                    public record to the offshore account, scoring 100 points bonus points.
-                </li>
-                <li>
-                    If 2 or 3 lines are completed simultaneously, score 200 points and 300 bonus
-                    points respectively.
-                </li>
-                <li>
-                    If the maximum possible lines (4) are filled simultaneously, score 800 bonus
-                    points.
-                </li>
-                <li>
-                    Scoring 2 consecutive max (4) line clears results in a bonus of 1200 points!
-                </li>
-            </ul>
+        </nav>
+    </header>
+    <!--Primary section of website, wrapped to allow for menu Operation-->
+    <section id="overallWrap" class="overallWrap">
+        <!--Area for Canvas to be placed-->
+        <section id="gameArea" class="gameArea">
+            <section id="flavourText" class="textBox regText">
+                <h1>Rules and Scoring</h1>
+                <p>
+                    The objective of the game is to fill rows with blocks to score points.
+                </p>
+                <h2>
+                    Control Scheme
+                </h2>
+                <ul>
+                    <li>
+                        Blocks will enter the field of play one at a time.
+                    </li>
+                    <li>
+                        Blocks descend at a set interval until they encounter the bottom of the field
+                        or they encounter another block.
+                    </li>
+                    <li>
+                        Blocks cannot move up but the player can hasten their
+                        descent by pressing "S".
+                    </li>
+                    <li>
+                        The player can move a block left (press "A") or right (press "D")
+                    </li>
+                    <li>
+                        Blocks can be rotated (press "W") in a clockwise fashion to reposition.
+                    </li>
+                </ul>
+                <h2>
+                    Scoring
+                </h2>
+                <ul>
+                    <li>
+                        Blocks that finish their descent score 10 points.
+                    </li>
+                    <li>
+                        If an entire row is filled with blocks (cash) the line disappears from
+                        public record to the offshore account, scoring 100 points bonus points.
+                    </li>
+                    <li>
+                        If 2 or 3 lines are completed simultaneously, score 200 points and 300 bonus
+                        points respectively.
+                    </li>
+                    <li>
+                        If the maximum possible lines (4) are filled simultaneously, score 800 bonus
+                        points.
+                    </li>
+                    <li>
+                        Scoring 2 consecutive max (4) line clears results in a bonus of 1200 points!
+                    </li>
+                </ul>
+            </section>
         </section>
+        <footer id="pageFooter" class="pageFooter">
+            <ul id="socialMedia" class="pageFooterList"></ul>
+        </footer>
     </section>
-    <footer id="pageFooter" class="pageFooter">
-        <ul id="socialMedia" class="pageFooterList"></ul>
-    </footer>
-</section>
 
-<!--Right Pushing Menu-->
-<menu id="pushMenu" class="pushMenu">
-    <li>
-        <a href="#" class="navText">Login</a>
-    </li>
-    <li>
-        <a href="#" class="navText">Set EvilCorp</a>
-    </li>
-    <li>
-        <a href="#" class="navText">Progress</a>
-    </li>
-    <li>
-        <a href="references.html" class="navText">References</a>
-    </li>
-</menu>
+    <!--Right Pushing Menu-->
+    <menu id="pushMenu" class="pushMenu">
+        <li>
+            <a href="game.html" class="navText">Play the Game!</a>
+        </li>
+        <li>
+            <a href="rules.html" class="navText">Rules and Scoring</a>
+        </li>
+        <li>
+            <a href="index.html" class="navText">Introduction and Background</a>
+        </li>
+        <li>
+            <a href="references.html" class="navText">References</a>
+        </li>
+    </menu>
 
-<!--Mask for background when menu pushes-->
-<section id="mask" class="mask"></section>
+    <!--Mask for background when menu pushes-->
+    <section id="mask" class="mask"></section>
 </body>
 </html>
