@@ -2,69 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Stash EvilCorp's Cash</title>
+    <title>Stash EvilCorp's Cash - Intro</title>
     <link rel="stylesheet" type="text/css" href="mainStyle.css"/>
     <script src="mainScript.js"></script>
 </head>
 <body>
-    <header id="pageHeader" class="pageHeader">
-            <div id="gameTitle">
-                <a href="index.html" class="titleText">Fill EvilCorp's Pocket</a>
-            </div>
-            <nav id="pageNavigation" class="pageNavigation navText">
-                <ul id="navList" class="navList">
-                    <li id ="burgerIcon" class="burgerIcon" >
-                        <a id="menuButton" class="menuButton titleText" href="#">☰</a>
-                    </li>
-                    <li>
-                        <a class="navText" href="#">Rules</a>
-                    </li>
-                    <li>
-                        <a class="navText" href="references.html">Intro</a>
-                    </li>
-                </ul>
-            </nav>
-    </header>
+<header id="pageHeader" class="pageHeader">
+    <div id="gameTitle">
+        <a href="game.html" class="titleText">Fill EvilCorp's Pocket</a>
+    </div>
+    <nav id="pageNavigation" class="pageNavigation navText">
+        <ul id="navList" class="navList">
+            <li id ="burgerIcon" class="burgerIcon" >
+                <a id="menuButton" class="menuButton titleText" href="#">☰</a>
+            </li>
+            <li>
+                <a class="navText" href="rules.html">Rules</a>
+            </li>
+            <li>
+                <a class="navText" href="index.html">Intro</a>
+            </li>
+        </ul>
+    </nav>
+</header>
 <!--Primary section of website, wrapped to allow for menu Operation-->
-    <section id="overallWrap" class="overallWrap">
-        <!--Area for Canvas to be placed-->
-        <section id="gameArea" class="gameArea">
-            <div class="gameContainer">
-                <div id="sidebar" class="sidebar">
-                    <canvas id="previewCanvas" class="previewCanvas">Your browser doesn't support canvas!</canvas>
-                    <p class="scoreText">Millions of Dollars Hidden:</p>
-                    <p id="score" class="navText">0</p>
-                    <p id="startBanner" class="navText"> Press SPACE to begin.</p>
-                </div>
-                <canvas id="canvas" class="gameCanvas">Your browser doesn't support canvas!</canvas>
-            </div>
+<section id="overallWrap" class="overallWrap">
+    <!--Area for Canvas to be placed-->
+    <section id="gameArea" class="gameArea">
+        <section id="flavourText" class="textBox regText">
+            <h1>Introduction and Background</h1>
+            <p>
+                EvilCorp is a multinational conglomerate of a company that sells itself as a saviour to the
+                as possible. Starting off, the company attempted to operate to this ideal, however once publicly
+                floated on the stock exchange, the company was forced to turn to making a profit and nothing else.
+            </p>
+            <p>
+                While pretending to still have lofty goals, the company must privately make as much profit, as
+                efficiently as possible.
+            </p>
+            <p>
+                Your role, as a cog in the EvilCorp machine is to observe the blocks of incoming revenue.  When
+                the opportunity presents itself, if you can line up the revenue in an efficiently sneaky manner
+                it can be stashed in an offshore tax haven as profit that can never be used to improve the quality
+                of the products and services provided by EvilCorp.
+            </p>
+            <p>
+                If you can't stash the revenue it becomes public and must be presented as operating costs.
+                If this revenue overflows the public perception of operating costs, you will be investigated
+                and shut down for fraud.
+            </p>
+            <p >
+                <a href="game.html">
+                    So get to hiding that revenue and boosting your private profits!
+                </a>
+            </p>
+            <p>
+                <a href="rules.html">Read the Rules.</a>
+            </p>
+
         </section>
-
-        <footer id="pageFooter" class="pageFooter">
-            <ul id="socialMedia" class="pageFooterList">
-            </ul>
-        </footer>
     </section>
+    <footer id="pageFooter" class="pageFooter">
+        <ul id="socialMedia" class="pageFooterList"></ul>
+    </footer>
+</section>
 
-    <!--Right Pushing Menu-->
-    <menu id="pushMenu" class="pushMenu">
-        <li>
-            <a href="#" class="navText">Login</a>
-        </li>
-        <li>
-            <a href="#" class="navText">Set EvilCorp</a>
-        </li>
-        <li>
-            <a href="#" class="navText">Progress</a>
-        </li>
-        <li>
-            <a href="references.html" class="navText">References</a>
-        </li>
-    </menu>
+<!--Right Pushing Menu-->
+<menu id="pushMenu" class="pushMenu">
+    <li>
+        <a href="#" class="navText">Login</a>
+    </li>
+    <li>
+        <a href="#" class="navText">Set EvilCorp</a>
+    </li>
+    <li>
+        <a href="#" class="navText">Progress</a>
+    </li>
+    <li>
+        <a href="references.html" class="navText">References</a>
+    </li>
+</menu>
 
-    <!--Mask for background when menu pushes-->
-    <section id="mask" class="mask"></section>
-    <!--Load Script-->
-    <script src="game.js"></script>
+<!--Mask for background when menu pushes-->
+<section id="mask" class="mask"></section>
 </body>
 </html>

@@ -1,7 +1,7 @@
 (function(){    // Make a private space
 
     /*--------------------------------------------------Constants*/
-    var keyArray = {ESC: 27, SPACE: 32, W: 87, S: 83, A: 65, D: 68, P: 80},
+    var keyArray = {ESC: 27, SPACE: 32, W: 87, S: 83, A: 65, D: 68, P: 80, ENTER: 13},
         directionArray = {UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3},
         canvas = document.getElementById("canvas"),
         ctx = canvas.getContext("2d"),
@@ -368,7 +368,7 @@
         else{
             //  If not playing
             switch(event.keyCode){
-                case keyArray.SPACE:
+                case keyArray.ENTER:
                     startPlaying();
                     preventDefault = true;
                     break;

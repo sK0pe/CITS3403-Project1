@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stash EvilCorp's Cash</title>
+    <link rel="stylesheet" type="text/css" href="mainStyle.css"/>
+    <script src="mainScript.js"></script>
+</head>
+<body>
+    <header id="pageHeader" class="pageHeader">
+            <div id="gameTitle">
+                <a href="game.html" class="titleText">Fill EvilCorp's Pocket</a>
+            </div>
+            <nav id="pageNavigation" class="pageNavigation navText">
+                <ul id="navList" class="navList">
+                    <li id ="burgerIcon" class="burgerIcon" >
+                        <a id="menuButton" class="menuButton titleText" href="#">☰</a>
+                    </li>
+                    <li>
+                        <a class="navText" href="rules.html">Rules</a>
+                    </li>
+                    <li>
+                        <a class="navText" href="index.html">Intro</a>
+                    </li>
+                </ul>
+            </nav>
+    </header>
+<!--Primary section of website, wrapped to allow for menu Operation-->
+    <section id="overallWrap" class="overallWrap">
+        <!--Area for Canvas to be placed-->
+        <section id="gameArea" class="gameArea">
+            <div class="gameContainer">
+                <div id="sidebar" class="sidebar">
+                    <canvas id="previewCanvas" class="previewCanvas">Your browser doesn't support canvas!</canvas>
+                    <p class="scoreText">Millions of Dollars Hidden:</p>
+                    <p id="score" class="navText">0</p>
+                    <p id="startBanner" class="navText"> Press ENTER to begin.</p>
+                </div>
+                <canvas id="canvas" class="gameCanvas">Your browser doesn't support canvas!</canvas>
+            </div>
+        </section>
+
+        <footer id="pageFooter" class="pageFooter">
+            <ul id="socialMedia" class="pageFooterList">
+            </ul>
+        </footer>
+    </section>
+
+    <!--Right Pushing Menu-->
+    <menu id="pushMenu" class="pushMenu">
+        <li>
+            <a href="#" class="navText">Login</a>
+        </li>
+        <li>
+            <a href="#" class="navText">Set EvilCorp</a>
+        </li>
+        <li>
+            <a href="#" class="navText">Progress</a>
+        </li>
+        <li>
+            <a href="references.html" class="navText">References</a>
+        </li>
+    </menu>
+
+    <!--Mask for background when menu pushes-->
+    <section id="mask" class="mask"></section>
+    <!--Load Script-->
+    <script src="game.js"></script>
+</body>
+</html>
