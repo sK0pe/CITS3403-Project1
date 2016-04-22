@@ -1,7 +1,7 @@
 (function(){    // Make a private space
 
     /*--------------------------------------------------Constants*/
-    var keyArray = {ESC: 27, SPACE: 32, W: 87, S: 83, A: 65, D: 68, P: 80, ENTER: 13},
+    var keyArray = {ESC: 27, SPACE: 32, W: 87, S: 83, A: 65, D: 68, ENTER: 13},
         directionArray = {UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3},
         canvas = document.getElementById("canvas"),
         ctx = canvas.getContext("2d"),
@@ -20,7 +20,8 @@
         currBlock,      // current block
         nextBlock,      // next block
         score,          // current score
-        tetris;         // if last clear was a tetris (4 blocks)
+        tetris,         // if last clear was a tetris (4 blocks)
+        paused;         // Boolean indicating pause state
 
     /*----------------------------------------------Tetrminos*/
     /*  A 16bit number is representing each of the 2d arrays that represent
@@ -100,6 +101,7 @@
         document.getElementById("startBanner").style.visibility = "hidden";
         reset();
         playing = true;
+        paused = false;
     }
 
     //  End game
@@ -107,6 +109,10 @@
         document.getElementById("startBanner").style.visibility ="visible";
         setScore(0);
         playing = false;
+    }
+
+    function setPauseState(){
+        paused = !paused;
     }
 
     // Set Tetris boolean
@@ -337,7 +343,7 @@
 
     function keyDown(event){
         var preventDefault = false;
-        if(playing){
+        if(playing && !paused){
             switch(event.keyCode){
                 case keyArray.A:
                     playerInputs.push(directionArray.LEFT);
@@ -359,8 +365,8 @@
                     endGame();
                     preventDefault = true;
                     break;
-                case keyArray.P:
-                    pause();
+                case keyArray.SPACE:
+                    setPauseState();
                     preventDefault = true;
                     break;
             }
@@ -372,8 +378,8 @@
                     startPlaying();
                     preventDefault = true;
                     break;
-                case keyArray.P:
-                    unPause();
+                case keyArray.SPACE:
+                    setPauseState();
                     preventDefault = true;
                     break;
             }
@@ -487,7 +493,7 @@
             var current = new Date().getTime();
             // Find elapsed time in seconds
             elapsedTime = (current - start)/1000.0;
-            if(playing){
+            if(playing && !paused){
                 // do the next user input in queue
                 executeInput(playerInputs.shift());
                 if(elapsedTime > timeToDrop){
